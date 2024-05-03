@@ -1,0 +1,50 @@
+#include <iostream>
+#include <string>
+using namespace std;
+
+class Person
+{
+private:
+    string name;
+    int age;
+
+public:
+    Person() {}
+    Person(string n, int a)
+    {
+        name = n;
+        age = a;
+    }
+    string get_name()
+    {
+        return name;
+    }
+    int get_age()
+    {
+        return age;
+    }
+    void person_data()
+    {
+        cout << "Person Name : " << name << endl;
+        cout << "Person Age : " << age << endl;
+    }
+};
+
+class Employee : protected Person
+{
+public:
+    Employee(string name, int age) : Person(name, age) {}
+    void display()
+    {
+        cout << "Name of Employee : " << get_name() << endl
+             << "Age : " << get_age() << endl;
+    }
+};
+
+int main(){
+    Person per("Aabid Ansari",21);
+    per.person_data();
+    Employee emp("Majid Ansari",22);
+    emp.display();
+    return 0;
+}
